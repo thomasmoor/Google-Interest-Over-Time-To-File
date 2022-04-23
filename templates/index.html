@@ -1,0 +1,54 @@
+<html>
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+
+  <!-- Tool Description -->
+  <h1>Get Google Trends Interest</h1>
+
+  <!-- Parameters form -->
+  <form action="" method="post">
+
+    <!-- Keywords Input field -->
+    <p>Keywords (up to 5, separated by commas):p>
+    <p><input type="text" name="keywords" /></p>
+
+    <!-- Submit button -->
+    <p><input type="submit" name="extract" value="Get Google Trends data"/></p>
+
+    <!-- Download button -->
+    <p><input type="submit" name="download" value="Download"/></p>
+
+    <!-- Display the results -->
+    <!-- https://stackoverflow.com/questions/51932277/print-values-of-array-of-arrays-in-flask -->
+
+    <table border="1">
+      <tr>
+        <th>Keyword</th>
+        <th>Last</th>
+        <th>Max</th>
+        <th>Min</th>
+        <th>Avg 5Y</th>
+        <th>Avg 1Y</th>
+        <th>Avg 6W</th>
+      </tr>
+      {% for result in results %}
+      <tr>
+        {% for key, value in result.items() %}
+          <td>{{ value }}</td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </table>
+
+    <div>{{ data }}</div>
+
+  </form>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>
