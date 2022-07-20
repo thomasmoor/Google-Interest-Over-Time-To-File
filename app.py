@@ -7,6 +7,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 from pytrends.request import TrendReq
 
+# pip install flask flask_cors Flask_Session matplotlib pytrends
+
 ma_long=252
 ma_medium=52
 ma_short=6
@@ -80,7 +82,11 @@ def extract(str):
 @app.route('/getgoogleiot', methods=['POST'])
 @cross_origin()
 def api():
-  data = json.loads(request.data)
+  if request.data:
+    data = json.loads(request.data)
+  else:
+    data=request.form
+  print("data:")
   print(data)
   keywords=data['keywords']
   print(f"GoogleTrends - branch: api - keywords: {keywords}")
